@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Can You Remember? | Interactive English Lesson</title>
+<style>
+:root{
+  --bg:#f7f4ff;--ink:#202037;--muted:#6b6680;--pink:#ff4fa3;--violet:#7c4dff;--cyan:#20c7d9;--yellow:#ffd166;--green:#3ddc97;--red:#ff6b6b;--card:rgba(255,255,255,.82);
+  --shadow:0 18px 45px rgba(61,45,112,.18);--radius:24px;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 10% 5%,#ffe1f0 0 18%,transparent 35%),radial-gradient(circle at 95% 0,#d7f8ff 0 17%,transparent 35%),linear-gradient(135deg,#f9f7ff,#eefcff);color:var(--ink);line-height:1.5} 
+.hero{min-height:88vh;display:grid;place-items:center;padding:44px 20px;position:relative;overflow:hidden}.blob{position:absolute;border-radius:999px;filter:blur(2px);opacity:.65}.b1{width:260px;height:260px;background:#ffd166;left:-80px;top:80px}.b2{width:340px;height:340px;background:#8de9ff;right:-100px;bottom:70px}.b3{width:150px;height:150px;background:#ff9ed0;right:18%;top:12%}
+.hero-card{max-width:1050px;width:100%;background:rgba(255,255,255,.68);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);border-radius:34px;padding:54px;box-shadow:var(--shadow);position:relative}.badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:10px 16px;font-weight:800;color:var(--violet);box-shadow:0 8px 20px rgba(124,77,255,.14)}h1{font-size:clamp(42px,7vw,86px);line-height:.95;margin:20px 0;background:linear-gradient(90deg,var(--violet),var(--pink),var(--cyan));-webkit-background-clip:text;color:transparent}h2{font-size:clamp(28px,4vw,44px);margin:0 0 12px}h3{font-size:24px;margin:0 0 14px}.lead{font-size:21px;color:var(--muted);max-width:720px}.stats{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0}.pill{background:#fff;border-radius:18px;padding:14px 18px;font-weight:750;box-shadow:0 8px 18px rgba(0,0,0,.06)}.btn{border:0;border-radius:18px;padding:13px 20px;font-size:16px;font-weight:850;cursor:pointer;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;box-shadow:0 12px 25px rgba(124,77,255,.28);transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.secondary{background:#fff;color:var(--violet)}.btn.ghost{background:#f2eeff;color:var(--violet);box-shadow:none}.wrap{max-width:1150px;margin:0 auto;padding:34px 18px}.section{margin:34px 0;padding:28px;background:var(--card);border:1px solid rgba(255,255,255,.7);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(14px)}.topline{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.goal-grid,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.mini{background:#fff;border-radius:20px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.06)}.icon{font-size:34px}.progress-shell{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.7)}.progress{height:12px;background:#e7e0ff;border-radius:999px;overflow:hidden;max-width:1150px;margin:auto}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--cyan),var(--violet));transition:.4s}.flash{min-height:145px;display:grid;place-items:center;text-align:center;font-size:30px;font-weight:900;background:linear-gradient(135deg,#fff,#f6f0ff);border:2px dashed #d5c8ff;border-radius:24px;cursor:pointer;transition:.25s}.flash:hover{transform:rotate(-1deg) scale(1.01)}.bank{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}.chip{background:#fff;border:2px solid #e4dcff;border-radius:999px;padding:10px 15px;font-weight:850;cursor:grab}.drop,.input{min-height:45px;border:2px dashed #cfc3ff;background:#fbf9ff;border-radius:14px;padding:10px 12px;display:inline-flex;min-width:120px;align-items:center;justify-content:center;margin:4px}.drop.over{background:#ecfff8;border-color:var(--green)}.sentence{font-size:18px;margin:12px 0}.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.opt{padding:16px;border-radius:18px;background:#fff;border:2px solid transparent;cursor:pointer;font-weight:800;box-shadow:0 6px 16px rgba(0,0,0,.05)}.opt.selected{border-color:var(--violet);background:#f2eeff}.opt.correct{border-color:var(--green);background:#eafff5}.opt.wrong{border-color:var(--red);background:#fff0f0}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}.sound-card{background:#fff;border-radius:18px;padding:16px}.sound-title{font-size:22px;font-weight:950}.profile{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:start;background:#fff;border-radius:22px;padding:18px;margin:14px 0}.avatar{width:110px;height:110px;border-radius:28px;display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,#dff9ff,#ffe5f4)}select{border:2px solid #ded4ff;border-radius:14px;padding:8px 10px;font-weight:800;background:#fff}.feedback{margin-top:14px;font-weight:900;color:var(--violet);min-height:26px}.teacher{background:#171629;color:#fff}.teacher summary{cursor:pointer;font-size:22px;font-weight:900}.answer{background:rgba(255,255,255,.1);border-radius:16px;padding:14px;margin:10px 0}.speak{background:linear-gradient(135deg,#fff7db,#fff);border-left:8px solid var(--yellow)}.complete{background:linear-gradient(135deg,#eafff5,#fff)}@media(max-width:720px){.hero-card{padding:30px}.section{padding:20px}.profile{grid-template-columns:1fr}.avatar{width:100%;height:90px}.sentence{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="progress-shell"><div class="progress"><div class="bar" id="bar"></div></div></div>
+<section class="hero">
+ <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+ <div class="hero-card">
+  <span class="badge">✨ A1 Review Mission</span>
+  <h1>Can You Remember?</h1>
+  <p class="lead">Review countries, nationalities, the verb <b>be</b>, simple personal information and pronunciation through mini-games.</p>
+  <div class="stats"><div class="pill">🎯 CEFR: A1</div><div class="pill">⏱ 30–40 min</div><div class="pill">🧠 Grammar + Vocabulary</div><div class="pill">🗣 Speaking finish</div></div>
+  <button class="btn" onclick="document.querySelector('#goals').scrollIntoView({behavior:'smooth'})">Start the lesson</button>
+ </div>
+</section>
+<main class="wrap">
+<section id="goals" class="section">
+ <div class="topline"><h2>🎯 Lesson Goal</h2><span class="badge">Remember + Use</span></div>
+ <div class="goal-grid">
+  <div class="mini"><div class="icon">👤</div><b>Grammar</b><p>Use <i>am / is / are</i>, possessives and negatives.</p></div>
+  <div class="mini"><div class="icon">🌍</div><b>Vocabulary</b><p>Sort days, numbers, countries, nationalities and classroom words.</p></div>
+  <div class="mini"><div class="icon">🔊</div><b>Pronunciation</b><p>Spot the word with a different sound.</p></div>
+  <div class="mini"><div class="icon">💬</div><b>Speaking</b><p>Make short class profile answers about yourself.</p></div>
+ </div>
+</section>
+<section class="section">
+ <h2>🔥 Warm-up: Flip & Remember</h2><p>Click a card. Say one example sentence.</p>
+ <div class="card-grid" id="flashcards"></div>
+</section>
+<section class="section">
+ <h2>📚 Grammar Builder: one missing word</h2><p>Drag the correct word into each sentence.</p>
+ <div class="bank" id="gramBank"></div><div id="gramSentences"></div>
+ <button class="btn" onclick="checkDrops('grammar')">Check</button> <button class="btn secondary" onclick="resetDrops('grammar')">Reset</button> <button class="btn ghost" onclick="showDrops('grammar')">Show Answer</button>
+ <div class="feedback" id="grammarFb"></div>
+</section>
+<section class="section">
+ <h2>🎮 Odd One Out: Vocabulary Arcade</h2><p>Choose the word that is different.</p><div id="oddQuiz"></div>
+ <button class="btn" onclick="checkOdd()">Check</button> <button class="btn secondary" onclick="resetOdd()">Reset</button> <button class="btn ghost" onclick="showOdd()">Show Answer</button><div class="feedback" id="oddFb"></div>
+</section>
+<section class="section">
+ <h2>🔊 Pronunciation Detective</h2><p>Find the word with a different sound.</p><div id="soundQuiz" class="card-grid"></div>
+ <button class="btn" onclick="checkSound()">Check</button> <button class="btn secondary" onclick="resetSound()">Reset</button> <button class="btn ghost" onclick="showSound()">Show Answer</button><div class="feedback" id="soundFb"></div>
+</section>
+<section class="section">
+ <h2>🧩 Class Profile Challenge</h2><p>Read the class profile. Choose the best word.</p><div id="profileTask"></div>
+ <button class="btn" onclick="checkProfile()">Check</button> <button class="btn secondary" onclick="resetProfile()">Reset</button> <button class="btn ghost" onclick="showProfile()">Show Answer</button><div class="feedback" id="profileFb"></div>
+</section>
+<section class="section speak">
+ <h2>💬 Speaking: This or That</h2>
+ <div class="card-grid">
+  <div class="mini"><b>Are you from Europe or Asia?</b><p>Answer: I’m from...</p></div>
+  <div class="mini"><b>English or American teacher?</b><p>My teacher is...</p></div>
+  <div class="mini"><b>Monday or Saturday?</b><p>I like...</p></div>
+  <div class="mini"><b>Phone or computer?</b><p>I use...</p></div>
+ </div>
+</section>
+<section class="section complete">
+ <h2>🏆 Lesson Complete</h2><p>Final challenge: introduce yourself in 5 sentences: name, age, city, country/nationality, teacher.</p>
+</section>
+<section class="section teacher">
+ <details><summary>👩‍🏫 Teacher Notes</summary>
+  <div class="answer"><b>Topic:</b> A1 revision: verb be, countries/nationalities, possessives, basic profile language, sound discrimination.</div>
+  <div class="answer"><b>Grammar answers:</b> Are; is; your; aren’t; you; Is.</div>
+  <div class="answer"><b>Odd one out:</b> France; today; thirteen; Polish; Europe; Germany; door; repeat.</div>
+  <div class="answer"><b>Pronunciation:</b> hi; bye; his; Poland; table; German.</div>
+  <div class="answer"><b>Profile answers:</b> She’s; is; Her; are; Brazilian; Their; My; ’m not; Scotland; they’re.</div>
+  <div class="answer"><b>Watch for:</b> confusing country/nationality, Her/His/Their, negative “I’m not”, and pronunciation by spelling not sound.</div>
+ </details>
+</section>
+</main>
+<script>
+const done=new Set(); function mark(x){done.add(x);document.getElementById('bar').style.width=Math.min(100,done.size*20)+'%'}
+const flash=[['am / is / are','I am 19. She is Japanese. They are students.'],['countries','Japan, Brazil, Italy, France'],['nationalities','Japanese, Brazilian, Italian, French'],['possessives','my, your, his, her, their'],['sounds','tree, train, bike, phone']];
+document.getElementById('flashcards').innerHTML=flash.map((f,i)=>`<div class="flash" onclick="this.innerHTML=this.dataset.back;mark('warm')" data-back="${f[1]}">${f[0]}</div>`).join('');
+const grammar=[['Are','you from France?'],['is','Milan ____ in the south of Italy. It’s in the north.'],['your','Please turn off ____ phone.'],["aren’t","They ____ from New Zealand. They’re Australian."],['you',"I’m 19. How old are ____?"],['Is','____ your teacher English or American?']];
+const gwords=['your','Is','you','are','is',"aren’t"];
+function renderGrammar(){gramBank.innerHTML=gwords.map(w=>`<span class="chip" draggable="true" ondragstart="drag(event)" data-word="${w}">${w}</span>`).join('');gramSentences.innerHTML=grammar.map((g,i)=>`<div class="sentence" data-answer="${g[0]}">${i+1}. ${g[1].includes('____')?g[1].replace('____',`<span class="drop grammar" ondrop="drop(event)" ondragover="allow(event)"></span>`):`<span class="drop grammar" ondrop="drop(event)" ondragover="allow(event)"></span> ${g[1]}`}</div>`).join('')}renderGrammar();
+function allow(e){e.preventDefault();e.currentTarget.classList.add('over')} function drag(e){e.dataTransfer.setData('text',e.target.dataset.word)} function drop(e){e.preventDefault();e.currentTarget.textContent=e.dataTransfer.getData('text');e.currentTarget.classList.remove('over')}
+function checkDrops(type){let ok=0, els=[...document.querySelectorAll('.'+type)]; els.forEach((d,i)=>{let a=d.closest('.sentence').dataset.answer.toLowerCase(); if(d.textContent.toLowerCase()==a){d.style.borderColor='var(--green)';ok++}else d.style.borderColor='var(--red)'});document.getElementById(type+'Fb').textContent= ok==els.length?'Excellent! Grammar unlocked ✨':'Almost! Try again 😊'; if(ok==els.length)mark(type)}
+function resetDrops(type){document.querySelectorAll('.'+type).forEach(d=>{d.textContent='';d.style.borderColor=''})}function showDrops(type){document.querySelectorAll('.'+type).forEach(d=>d.textContent=d.closest('.sentence').dataset.answer)}
+const odd=[['Monday','Wednesday','France','Saturday','France'],['four','nineteen','eleven','today','today'],['thirteen','forty','seventy','ninety','thirteen'],['Polish','Mexico','Italy','Russia','Polish'],['China','Europe','Spain','Türkiye','Europe'],['Japanese','Irish','Swiss','Germany','Germany'],['listen','understand','answer','door','door'],['desk','repeat','table','chair','repeat']];
+function renderOdd(){oddQuiz.innerHTML=odd.map((q,i)=>`<div class="mini"><b>${i+1}</b><div class="options">${q.slice(0,4).map(o=>`<button class="opt odd" onclick="sel(this)" data-answer="${q[4]}">${o}</button>`).join('')}</div></div>`).join('')}renderOdd();function sel(b){[...b.parentNode.children].forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}
+function checkOdd(){let groups=[...oddQuiz.querySelectorAll('.mini')],ok=0;groups.forEach(g=>{let s=g.querySelector('.selected');if(s&&s.textContent==s.dataset.answer){s.classList.add('correct');ok++}else if(s)s.classList.add('wrong')});oddFb.textContent=ok==groups.length?'Amazing! Vocabulary master 🌍':`You got ${ok}/${groups.length}. You're very close!`;if(ok==groups.length)mark('odd')}
+function resetOdd(){renderOdd();oddFb.textContent=''}function showOdd(){[...oddQuiz.querySelectorAll('.opt')].forEach(o=>{if(o.textContent==o.dataset.answer)o.classList.add('correct')})}
+const sounds=[['tree',['he','hi','please','meet'],'hi'],['train',['bye','eight','say','they'],'bye'],['bike',['I','five','his','my'],'his'],['phone',['do','know','mobile','Poland'],'Poland'],['computer',['Asia','Ireland','Saturday','table'],'table'],['jazz',['German','go','Japan','page'],'German']];
+function renderSound(){soundQuiz.innerHTML=sounds.map((q,i)=>`<div class="sound-card"><div class="sound-title">${q[0]}</div><div class="options">${q[1].map(o=>`<button class="opt sound" onclick="sel(this)" data-answer="${q[2]}">${o}</button>`).join('')}</div></div>`).join('')}renderSound();
+function checkSound(){let groups=[...soundQuiz.querySelectorAll('.sound-card')],ok=0;groups.forEach(g=>{let s=g.querySelector('.selected');if(s&&s.textContent==s.dataset.answer){s.classList.add('correct');ok++}else if(s)s.classList.add('wrong')});soundFb.textContent=ok==groups.length?'Fantastic! Your ears are working 🎧':`Score: ${ok}/${groups.length}. Try again.`;if(ok==groups.length)mark('sound')}function resetSound(){renderSound();soundFb.textContent=''}function showSound(){[...soundQuiz.querySelectorAll('.opt')].forEach(o=>{if(o.textContent==o.dataset.answer)o.classList.add('correct')})}
+const prof=[['👩🏻','This is Suki Ito.','She’s','a student from Yokohama in Japan. Yokohama','is','a city south of Tokyo. Suki is 25.','Her','email address is s.ito@mail.com.'],['👨🏽‍🤝‍👨🏽','Enzo and Vitor','are','students, too. They’re','Brazilian',', from Salvador in the east of the country.','Their','surname is Oliveira.'],['👩🏾‍🏫','My','name is Susan McGuirre. I’m an English teacher, but I',"’m not",'English. I’m from Edinburgh in','Scotland','. Suki, Enzo and Vitor are my students, and',"they’re",'very good!']];
+function renderProfile(){profileTask.innerHTML=prof.map((p,idx)=>`<div class="profile"><div class="avatar">${p[0]}</div><div>${p.slice(1).map(x=>['She’s','is','Her','are','Brazilian','Their','My',"’m not",'Scotland',"they’re"].includes(x)?` <select class="prof" data-answer="${x}"><option></option><option>am</option><option>is</option><option>are</option><option>She’s</option><option>He’s</option><option>Her</option><option>His</option><option>Their</option><option>My</option><option>Brazilian</option><option>Spain</option><option>Scotland</option><option>Scottish</option><option>’m not</option><option>not be</option><option>they’re</option></select> `:x).join(' ')}</div></div>`).join('')}renderProfile();
+function checkProfile(){let ok=0,els=[...document.querySelectorAll('.prof')];els.forEach(e=>{if(e.value==e.dataset.answer){e.style.borderColor='var(--green)';ok++}else e.style.borderColor='var(--red)'});profileFb.textContent=ok==els.length?'Well Done! Class profile complete 🏆':`Score: ${ok}/${els.length}. Almost!`;if(ok==els.length)mark('profile')}function resetProfile(){renderProfile();profileFb.textContent=''}function showProfile(){document.querySelectorAll('.prof').forEach(e=>e.value=e.dataset.answer)}
+</script>
+</body>
+</html>
